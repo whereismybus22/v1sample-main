@@ -1,0 +1,90 @@
+/* busstop.css */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: Arial, sans-serif;
+    height: 100vh;
+    overflow: hidden; /* Prevent scrolling */
+  }
+  
+  .top-bar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    z-index: 10;
+  }
+  
+  #busbackBtn {
+    width: 40px;
+    height: 40px;
+  }
+  
+  .filter-icon {
+    width: 40px;
+    height: 40px;
+  }
+  
+  #map-container {
+    position: relative;
+    height: calc(100vh - 60px); /* Adjust for top bar and buttons */
+    width: 100%;
+  }
+  
+  #search-input {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    right: 10px;
+    padding: 10px;
+    z-index: 2;
+    border-radius: 10px;
+    border: none;
+    background-color: #f2f2f2;
+  }
+  
+  #map {
+    height: 100%;
+    width: 100%;
+  }
+  
+  .button-container {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    background-color: #fff;
+    box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
+    z-index: 10;
+  }
+  
+  #cancel-btn, #save-btn {
+    padding: 10px 20px;
+    font-weight: bold;
+    border: none;
+    border-radius: 8px;
+    width: 48%; /* Equal width for both buttons */
+  }
+  
+  #cancel-btn {
+    background-color: white;
+    color: black;
+  }
+  
+  #save-btn {
+    background-color: #FFD966;
+    color: black;
+  }
