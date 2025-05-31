@@ -1,0 +1,16 @@
+[
+    {
+        "id": "route1",
+        "title": "Route 1",
+        "name": "Sai tharun",
+        "mobile": 9010025943,
+        "whatsapp": 9010025943
+    },
+    {
+        "id": "route2",
+        "title": "Route 2",
+        "name": "Sai Kiran",
+        "mobile": 9010025944,
+        "whatsapp": 9010025945
+    }
+]

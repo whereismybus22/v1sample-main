@@ -1,0 +1,12 @@
+{
+  "hypegpstracker": {
+    "url": "https://portal.hypegpstracker.com/api/get_devices?user_api_hash=$2y$10$mUiiGZjTiDatqMEvRhlRAeqVpQlLAW5psz/IchLS/JzBh0HQ9uHDy",
+    "auth": "$2y$10$mUiiGZjTiDatqMEvRhlRAeqVpQlLAW5psz/IchLS/JzBh0HQ9uHDy",
+    "title": "mlrit.whereismybus@gmail.com"
+  },
+  "traccar": {
+    "url": "sample",
+    "auth": "sample",
+    "title": "sample"
+  }
+}

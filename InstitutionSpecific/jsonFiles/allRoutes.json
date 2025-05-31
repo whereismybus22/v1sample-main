@@ -1,0 +1,28 @@
+{
+  "allRoutes": [
+    ["route1", "Route 1", 477],
+    ["route2", "Route 2", 477],
+    ["route3", "Route 3", 477],
+    ["route4", "Route 4", 477],
+    ["route5", "Route 5", 477],
+    ["route6", "Route 6", 477],
+    ["route7", "Route 7", 477],
+    ["route8", "Route 8", 477],
+    ["route9", "Route 9", 477],
+    ["route10", "Route 10", 477],
+    ["route11", "Route 11", 477],
+    ["route12", "Route 12", 477],
+    ["route13", "Route 13", 477],
+    ["route14", "Route 14", 477],
+    ["route15", "Route 15", 477],
+    ["route16", "Route 16", 477],
+    ["route17", "Route 17", 477],
+    ["route18", "Route 18", 477],
+    ["route19", "Route 19", 477],
+    ["route20", "Route 20", 477],
+    ["route21", "Route 21", 477],
+    ["route22", "Route 22", 477],
+    ["route23", "Route 23", 477],
+    ["route24", "Route 24", 477]
+  ]
+}
