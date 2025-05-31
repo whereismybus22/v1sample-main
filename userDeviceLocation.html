@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Live Location Tracker</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+    }
+    h1 {
+      color: #333;
+    }
+    .location-info {
+      margin-top: 20px;
+      font-size: 18px;
+    }
+    .error {
+      color: red;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Live Device Location Tracker</h1>
+  <div class="location-info">
+    <p><strong>Latitude:</strong> <span id="latitude">Loading...</span></p>
+    <p><strong>Longitude:</strong> <span id="longitude">Loading...</span></p>
+    <p><strong>Accuracy:</strong> <span id="accuracy">Loading...</span> meters</p>
+    <p><strong>Timestamp:</strong> <span id="timestamp">Loading...</span></p>
+    <p class="error" id="error"></p>
+  </div>
+
+  <script>
+    let userDeviceLocation = null;
+
+    function startWatchingUserLocation() {
+      if (!navigator.geolocation) {
+        document.getElementById('error').textContent = "Geolocation is not supported by your browser.";
+        return;
+      }
+
+      navigator.geolocation.watchPosition(
+        (position) => {
+          userDeviceLocation = {
+            latitude: position.coords.latitude,
+            longitude: position.coords.longitude,
+            accuracy: position.coords.accuracy,
+            timestamp: new Date(position.timestamp).toLocaleString()
+          };
+
+          // Update the UI
+          document.getElementById('latitude').textContent = userDeviceLocation.latitude.toFixed(6);
+          document.getElementById('longitude').textContent = userDeviceLocation.longitude.toFixed(6);
+          document.getElementById('accuracy').textContent = userDeviceLocation.accuracy.toFixed(2);
+          document.getElementById('timestamp').textContent = userDeviceLocation.timestamp;
+          document.getElementById('error').textContent = '';
+        },
+        (error) => {
+          document.getElementById('error').textContent = `Error: ${error.message}`;
+        },
+        {
+          enableHighAccuracy: true,
+          maximumAge: 0,
+          timeout: Infinity
+        }
+      );
+    }
+
+    // Start watching as soon as the page loads
+    startWatchingUserLocation();
+  </script>
+
+</body>
+</html>
