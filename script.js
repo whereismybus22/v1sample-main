@@ -1,6 +1,6 @@
 let configData; // Declare the variable
 
-fetch('institutionSpecific/jsonFiles/api.json')
+fetch('/institutionSpecific/jsonFiles/api.json')
   .then(response => response.json())
   .then(data => {
     configData = data; // Assign fetched data
