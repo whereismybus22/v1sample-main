@@ -1,4 +1,4 @@
-if (localStorage.getItem('userDeviceLocation')) {
+// if (localStorage.getItem('userDeviceLocation')) {
     let updatedLocation;
 
     navigator.geolocation.watchPosition(
@@ -19,4 +19,4 @@ if (localStorage.getItem('userDeviceLocation')) {
         }
     );
 
-}
+// }
