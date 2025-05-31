@@ -1,75 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Live Location Tracker</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      padding: 20px;
-    }
-    h1 {
-      color: #333;
-    }
-    .location-info {
-      margin-top: 20px;
-      font-size: 18px;
-    }
-    .error {
-      color: red;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <title>Geolocation Watcher</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+        #location {
+            font-size: 1.2em;
+            margin-top: 10px;
+        }
+    </style>
 </head>
 <body>
+    <h1>Live Device Location Updates</h1>
+    <div id="location">Waiting for location updates...</div>
 
-  <h1>Live Device Location Tracker</h1>
-  <div class="location-info">
-    <p><strong>Latitude:</strong> <span id="latitude">Loading...</span></p>
-    <p><strong>Longitude:</strong> <span id="longitude">Loading...</span></p>
-    <p><strong>Accuracy:</strong> <span id="accuracy">Loading...</span> meters</p>
-    <p><strong>Timestamp:</strong> <span id="timestamp">Loading...</span></p>
-    <p class="error" id="error"></p>
-  </div>
+    <!-- Include the JS file -->
+    <script src="watchPosition.js"></script>
 
-  <script>
-    let userDeviceLocation = null;
-
-    function startWatchingUserLocation() {
-      if (!navigator.geolocation) {
-        document.getElementById('error').textContent = "Geolocation is not supported by your browser.";
-        return;
-      }
-
-      navigator.geolocation.watchPosition(
-        (position) => {
-          userDeviceLocation = {
-            latitude: position.coords.latitude,
-            longitude: position.coords.longitude,
-            accuracy: position.coords.accuracy,
-            timestamp: new Date(position.timestamp).toLocaleString()
-          };
-
-          // Update the UI
-          document.getElementById('latitude').textContent = userDeviceLocation.latitude.toFixed(6);
-          document.getElementById('longitude').textContent = userDeviceLocation.longitude.toFixed(6);
-          document.getElementById('accuracy').textContent = userDeviceLocation.accuracy.toFixed(2);
-          document.getElementById('timestamp').textContent = userDeviceLocation.timestamp;
-          document.getElementById('error').textContent = '';
-        },
-        (error) => {
-          document.getElementById('error').textContent = `Error: ${error.message}`;
-        },
-        {
-          enableHighAccuracy: true,
-          maximumAge: 0,
-          timeout: Infinity
+    <!-- Script to display location updates -->
+    <script>
+        // Function to update UI when location changes
+        function updateLocationDisplay() {
+            const locationData = localStorage.getItem('userDeviceLocation');
+            if (locationData) {
+                const { latitude, longitude } = JSON.parse(locationData);
+                document.getElementById('location').textContent =
+                    `Latitude: ${latitude}, Longitude: ${longitude}`;
+            }
         }
-      );
-    }
 
-    // Start watching as soon as the page loads
-    startWatchingUserLocation();
-  </script>
+        // Initial display
+        updateLocationDisplay();
 
+        // Check for updates every second (or you can use an event-based approach)
+        setInterval(updateLocationDisplay, 1000);
+    </script>
 </body>
 </html>
